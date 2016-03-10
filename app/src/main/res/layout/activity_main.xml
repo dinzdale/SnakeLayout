@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <import type="android.databinding.ObservableArrayList" />
         <variable
             name="buttonVM"
             type="com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.model.ButtonModel" />
