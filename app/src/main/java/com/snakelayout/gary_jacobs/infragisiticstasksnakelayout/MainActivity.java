@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         buttonModelView = new ButtonModelView();
         binding.setButtonVM(buttonModelView);
         snakeLayout = (SnakeLayout) findViewById(R.id.snake_layout);
-
-
     }
 
     @Override
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             for (int i = 0; i < 3; i++) {
-                for (int x = 0; x < 12; x++) {
+                for (int x = 0; x < 15; x++) {
                     buttonModelView.setButtonValues(x, "Label Update " + (x + i), x%2);
                 }
                 try {

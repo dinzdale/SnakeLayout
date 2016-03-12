@@ -13,9 +13,17 @@ import android.view.WindowManager;
  */
 
 public class SnakeLayout extends ViewGroup {
-    private int deviceWidth;
-    private int deviceHeight;
 
+    public static enum Orientation {
+        WRAP_LEFT_TO_RIGHT(0), WRAP_RIGHT_TO_LEFT(1);
+        int value;
+
+        Orientation(int value) {
+            this.value = value;
+        }
+    }
+    private Orientation orientation = Orientation.WRAP_RIGHT_TO_LEFT;
+    private int deviceWidth;
 
     public SnakeLayout(Context context) {
         super(context, null, 0);
@@ -30,16 +38,23 @@ public class SnakeLayout extends ViewGroup {
         init(context);
     }
 
-//    public SnakeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//    }
 
     public void init(Context context) {
         final Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         Point deviceDimensions = new Point();
         display.getSize(deviceDimensions);
         deviceWidth = deviceDimensions.x;
-        deviceHeight = deviceDimensions.y;
+        setOrientation(Orientation.WRAP_RIGHT_TO_LEFT);
+    }
+
+
+
+    public void setOrientation(Orientation orientation) {
+        this.orientation = orientation;
+    }
+
+    public Orientation getOrientation() {
+        return orientation;
     }
 
     @Override
@@ -49,10 +64,13 @@ public class SnakeLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        if (false) {
-            layoutForLeftRight(changed, l, t, r, b);
-        } else {
-            layoutForRightLeft(changed, l, t, r, b);
+        switch (getOrientation()) {
+            case WRAP_LEFT_TO_RIGHT:
+                layoutForLeftRight(changed, l, t, r, b);
+                break;
+            case WRAP_RIGHT_TO_LEFT:
+                layoutForRightLeft(changed, l, t, r, b);
+                break;
         }
     }
 
@@ -100,8 +118,7 @@ public class SnakeLayout extends ViewGroup {
 
     private void layoutForRightLeft(boolean changed, int l, int t, int r, int b) {
         final int count = getChildCount();
-        //final int count  = 4;
-        int curWidth, curHeight, curLeft, curRight, curTop, maxHeight;
+        int curWidth, curHeight, curRight, curTop, maxHeight;
 
         //get the available size of child view
         final int childRight = this.getMeasuredWidth() - this.getPaddingRight();
@@ -128,20 +145,19 @@ public class SnakeLayout extends ViewGroup {
             curHeight = child.getMeasuredHeight();
             //wrap is reach to the end
             if (curRight - curWidth > childLeft) {
+                // layout button right to left, until end of line reached
                 curRight -= curWidth;
-                //curTop += maxHeight;
-                //maxHeight = 0;
-            }
-            else {
+            } else {
+                // end reached, wrap to next line
                 curRight = this.getMeasuredWidth() - this.getPaddingRight() - curWidth;
                 curTop += maxHeight;
+                maxHeight = 0;
             }
             //do the layout
-            child.layout(curRight, curTop, curRight+curWidth, curTop + curHeight);
+            child.layout(curRight, curTop, curRight + curWidth, curTop + curHeight);
             //store the max height
             if (maxHeight < curHeight)
                 maxHeight = curHeight;
-//            curRight -= curWidth;
         }
     }
 

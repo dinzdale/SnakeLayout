@@ -97,6 +97,19 @@
                 android:paddingRight="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
                 android:text="@{buttonVM.buttonLabelList[11]}" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[12]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingRight="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[13]}" />
 
         </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
     </FrameLayout>
