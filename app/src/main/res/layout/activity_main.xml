@@ -1,37 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="android.databinding.ObservableArrayList" />
+
         <variable
             name="buttonVM"
-            type="com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.model.ButtonModel" />
+            type="com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.model.ButtonModelView" />
+
     </data>
+
     <FrameLayout
-        android:id="@+id/topcontainerFL"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout
             android:id="@+id/snake_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{buttonVM.buttonLabel}" />
+                android:paddingLeft="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingRight="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[0]}" />
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="100dp"
-                android:text="Label 2" />
+                android:paddingTop="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+              android:text="@{buttonVM.buttonLabelList[1]}" />
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="100dp"
-                android:text="Label 3" />
+                android:padding="@{buttonVM.buttonWidthList[2] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[2]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[3]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[4]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@{buttonVM.buttonWidthList[5] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[5]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{buttonVM.buttonLabelList[6]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{buttonVM.buttonLabelList[7]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[8]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@{buttonVM.buttonWidthList[9] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[9]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingBottom="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[10]}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingleft="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingRight="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:text="@{buttonVM.buttonLabelList[11]}" />
+
+
         </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
     </FrameLayout>
 </layout>
