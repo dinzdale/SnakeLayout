@@ -93,7 +93,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingleft="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                android:paddingLeft="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
                 android:paddingRight="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
                 android:text="@{buttonVM.buttonLabelList[11]}" />
 

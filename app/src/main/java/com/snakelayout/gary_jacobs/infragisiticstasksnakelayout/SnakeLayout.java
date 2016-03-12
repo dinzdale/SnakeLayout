@@ -49,6 +49,14 @@ public class SnakeLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        if (false) {
+            layoutForLeftRight(changed, l, t, r, b);
+        } else {
+            layoutForRightLeft(changed, l, t, r, b);
+        }
+    }
+
+    private void layoutForLeftRight(boolean changed, int l, int t, int r, int b) {
         final int count = getChildCount();
         int curWidth, curHeight, curLeft, curTop, maxHeight;
 
@@ -90,6 +98,53 @@ public class SnakeLayout extends ViewGroup {
         }
     }
 
+    private void layoutForRightLeft(boolean changed, int l, int t, int r, int b) {
+        final int count = getChildCount();
+        //final int count  = 4;
+        int curWidth, curHeight, curLeft, curRight, curTop, maxHeight;
+
+        //get the available size of child view
+        final int childRight = this.getMeasuredWidth() - this.getPaddingRight();
+        final int childTop = this.getPaddingTop();
+        final int childLeft = this.getPaddingLeft();
+        final int childBottom = this.getMeasuredHeight() - this.getPaddingBottom();
+        final int childWidth = childLeft - childRight;
+        final int childHeight = childBottom - childTop;
+
+        maxHeight = 0;
+        curRight = childLeft - childWidth;
+        curTop = childTop;
+
+        for (int i = 0; i < count; i++) {
+
+            View child = getChildAt(i);
+
+            if (child.getVisibility() == GONE)
+                return;
+
+            //Get the maximum size of the child
+            child.measure(MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.AT_MOST), MeasureSpec.makeMeasureSpec(childHeight, MeasureSpec.AT_MOST));
+            curWidth = child.getMeasuredWidth();
+            curHeight = child.getMeasuredHeight();
+            //wrap is reach to the end
+            if (curRight - curWidth > childLeft) {
+                curRight -= curWidth;
+                //curTop += maxHeight;
+                //maxHeight = 0;
+            }
+            else {
+                curRight = this.getMeasuredWidth() - this.getPaddingRight() - curWidth;
+                curTop += maxHeight;
+            }
+            //do the layout
+            child.layout(curRight, curTop, curRight+curWidth, curTop + curHeight);
+            //store the max height
+            if (maxHeight < curHeight)
+                maxHeight = curHeight;
+//            curRight -= curWidth;
+        }
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -114,7 +169,7 @@ public class SnakeLayout extends ViewGroup {
             maxWidth += Math.max(maxWidth, child.getMeasuredWidth());
             mLeftWidth += child.getMeasuredWidth();
 
-              if ((mLeftWidth / deviceWidth) > rowCount) {
+            if ((mLeftWidth / deviceWidth) > rowCount) {
                 maxHeight += child.getMeasuredHeight();
                 rowCount++;
             } else {
