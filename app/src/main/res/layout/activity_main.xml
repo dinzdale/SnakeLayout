@@ -9,20 +9,20 @@
 
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center">-->
 
             <com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout
                 android:id="@+id/snake_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -116,14 +116,15 @@
                     android:text="@{buttonVM.buttonLabelList[13]}" />
 
             </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
-        </ScrollView>
+        <!--</ScrollView>-->
 
-        <Button
-            android:id="@+id/orientation_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="change orientation" />
+        <!--<Button-->
+            <!--android:id="@+id/orientation_btn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="change orientation"-->
+            <!--android:visibility="gone"/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 </layout>

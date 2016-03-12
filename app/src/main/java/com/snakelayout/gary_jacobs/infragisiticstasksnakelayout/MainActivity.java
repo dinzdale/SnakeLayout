@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         buttonModelView = new ButtonModelView();
         binding.setButtonVM(buttonModelView);
         snakeLayout = (SnakeLayout) findViewById(R.id.snake_layout);
-        orientation_btn = (Button) findViewById(R.id.orientation_btn);
-        orientation_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                snakeLayout.toggleOrientaton();
-            }
-        });
+//        orientation_btn = (Button) findViewById(R.id.orientation_btn);
+//        orientation_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                snakeLayout.toggleOrientaton();
+//            }
+//        });
     }
 
     @Override

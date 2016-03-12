@@ -48,7 +48,7 @@ public class SnakeLayout extends ViewGroup {
         Point deviceDimensions = new Point();
         display.getSize(deviceDimensions);
         deviceWidth = deviceDimensions.x;
-        setOrientation(Orientation.WRAP_RIGHT_TO_LEFT);
+        setOrientation(Orientation.WRAP_LEFT_TO_RIGHT);
     }
 
 
@@ -74,7 +74,7 @@ public class SnakeLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         switch (getOrientation()) {
             case WRAP_LEFT_TO_RIGHT:
-                layoutForLeftRight(changed, l, t, r, b);
+                layoutForLeftRightSnake(changed, l, t, r, b);
                 break;
             case WRAP_RIGHT_TO_LEFT:
                 layoutForRightLeft(changed, l, t, r, b);
@@ -123,7 +123,9 @@ public class SnakeLayout extends ViewGroup {
             curLeft += curWidth;
         }
     }
+
     private void layoutForLeftRightSnake(boolean changed, int l, int t, int r, int b) {
+        boolean leftToRight = true;
         final int count = getChildCount();
         int curWidth, curHeight, curLeft, curTop, maxHeight;
 
@@ -151,17 +153,31 @@ public class SnakeLayout extends ViewGroup {
             curWidth = child.getMeasuredWidth();
             curHeight = child.getMeasuredHeight();
             //wrap is reach to the end
-            if (curLeft + curWidth >= childRight) {
-                curLeft = childLeft;
-                curTop += maxHeight;
-                maxHeight = 0;
+            if (leftToRight) {
+                if (curLeft + curWidth >= childRight) {
+                    curLeft = childRight - curWidth;
+                    curTop += maxHeight;
+                    maxHeight = 0;
+                    leftToRight = false;
+                }
+            } else {
+                if (curLeft - curWidth < childLeft) {
+                    curLeft = childLeft;
+                    curTop += maxHeight;
+                    maxHeight = 0;
+                    leftToRight = true;
+                }
             }
             //do the layout
             child.layout(curLeft, curTop, curLeft + curWidth, curTop + curHeight);
             //store the max height
             if (maxHeight < curHeight)
                 maxHeight = curHeight;
-            curLeft += curWidth;
+            if (leftToRight) {
+                curLeft += curWidth;
+            } else {
+                curLeft -= curWidth;
+            }
         }
     }
 
