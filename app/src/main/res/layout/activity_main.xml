@@ -9,108 +9,121 @@
 
     </data>
 
-    <FrameLayout
-        android:id="@+id/scrollView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout
-            android:id="@+id/snake_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingRight="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[0]}" />
+            <com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout
+                android:id="@+id/snake_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-              android:text="@{buttonVM.buttonLabelList[1]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingRight="@{buttonVM.buttonWidthList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[0]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@{buttonVM.buttonWidthList[2] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[2]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[1] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[1]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[3]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@{buttonVM.buttonWidthList[2] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[2]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[4]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[3]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@{buttonVM.buttonWidthList[5] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[5]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[4] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[4]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{buttonVM.buttonLabelList[6]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@{buttonVM.buttonWidthList[5] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[5]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{buttonVM.buttonLabelList[7]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{buttonVM.buttonLabelList[6]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[8]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{buttonVM.buttonLabelList[7]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@{buttonVM.buttonWidthList[9] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[9]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[8] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[8]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[10]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@{buttonVM.buttonWidthList[9] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[9]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingRight="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[11]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[10] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[10]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingBottom="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[12]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingRight="@{buttonVM.buttonWidthList[11] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[11]}" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:paddingRight="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                android:text="@{buttonVM.buttonLabelList[13]}" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingLeft="@{buttonVM.buttonWidthList[12] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[12]}" />
 
-        </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
-    </FrameLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingTop="@{buttonVM.buttonWidthList[13] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:text="@{buttonVM.buttonLabelList[13]}" />
+
+            </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/orientation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="change orientation" />
+
+    </LinearLayout>
 </layout>
