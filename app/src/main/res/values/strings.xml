@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">InfragisiticsTaskSnakeLayout</string>
+    <string name="app_name">Infragisitics Task: SnakeLayout</string>
+    <string name="change_orientation_label">orientation</string>
 </resources>

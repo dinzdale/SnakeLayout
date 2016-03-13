@@ -32,6 +32,7 @@ public class ButtonModelView extends BaseObservable {
         return buttonMarginList;
     }
 
+    // Binding adapters to set view padding on left, right, top and bottom of view
     @BindingAdapter("android:paddingLeft")
     public static void setPaddingLeft(View view, int padding) {
         view.setPadding(padding, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
@@ -56,6 +57,13 @@ public class ButtonModelView extends BaseObservable {
         view.requestLayout();
     }
 
+    /**
+     * Set button sizing and labels. UI will automatically update.
+     *
+     * @param index - corresponding button data to update.
+     * @param value - corresponding button labels.
+     * @param width - corresponding button margin widths.
+     */
     public void setButtonValues(int index, String value, int width) {
         if (index >= buttonLabelList.size()) {
             buttonLabelList.add(value);
