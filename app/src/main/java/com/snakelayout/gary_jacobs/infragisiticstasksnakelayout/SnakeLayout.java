@@ -87,6 +87,7 @@ public class SnakeLayout extends ViewGroup {
 
     private void layoutSnake(boolean changed, int l, int t, int r, int b, boolean orientation) {
         final int count = getChildCount();
+        //final int count = 6;
         boolean leftToRight = orientation;
         int curWidth, curHeight, curLeft, curTop, maxHeight;
 
@@ -142,6 +143,9 @@ public class SnakeLayout extends ViewGroup {
                     curTop += maxHeight;
                     maxHeight = 0;
                     leftToRight = true;
+                } else {
+                    // adjust current left position to beginning of view
+                    curLeft = curLeft - curWidth;
                 }
             }
             //render this child view
@@ -154,8 +158,6 @@ public class SnakeLayout extends ViewGroup {
             // position the next view left position for the next child
             if (leftToRight) {
                 curLeft += curWidth;
-            } else {
-                curLeft -= curWidth;
             }
         }
     }
@@ -163,6 +165,7 @@ public class SnakeLayout extends ViewGroup {
 
     /**
      * System Callback requesting measurements of all children in this layout container
+     *
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */

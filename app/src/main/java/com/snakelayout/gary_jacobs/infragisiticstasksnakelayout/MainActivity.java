@@ -1,10 +1,14 @@
+/**
+ * Main Activity that displays a screen of buttons in a SnakeLayout. Using Android's new data binding
+ * library, a MVVM model is implemented by using the ButtonModelView to bind label and button size data to UI Buttons.
+ * This Activity lauches a background thread which updates label and sizing data and indirectly updates the displayed buttons.
+ */
 package com.snakelayout.gary_jacobs.infragisiticstasksnakelayout;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.databinding.ActivityMainBinding;
@@ -12,8 +16,9 @@ import com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.model.ButtonMode
 
 public class MainActivity extends AppCompatActivity {
 
-    private SnakeLayout snakeLayout;
-    private ButtonModelView buttonModelView;
+
+    private SnakeLayout snakeLayout; // Snake Layout used to display a list of views
+    private ButtonModelView buttonModelView; // ModelView bound to display UI elements
     private Button orientation_btn;
 
     @Override
@@ -38,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
         loadData.start();
     }
 
-
+    /**
+     * Simple background thread that updates button data through the ButtonModelView. This will update
+     * the displayed buttons size (increasing margin widths, heights and label). No UI element is updated
+     * directly!
+     */
     Thread loadData = new Thread(new Runnable() {
         @Override
         public void run() {

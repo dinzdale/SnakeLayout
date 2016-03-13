@@ -4,7 +4,6 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.BR;
 
@@ -14,11 +13,14 @@ import java.util.List;
 
 /**
  * Created by Gary Jacobs on 3/10/16.
+ *
+ * This is the model view object which binds label and margin sizing information to Button Views defined in
+ * the Main Activities layout definition.
  */
 public class ButtonModelView extends BaseObservable {
 
     private List<String> buttonLabelList = new ArrayList<>();
-    private List<Integer> buttonWidthList = new ArrayList<>();
+    private List<Integer> buttonMarginList = new ArrayList<>();
 
     @Bindable
     public List<String> getButtonLabelList() {
@@ -26,42 +28,44 @@ public class ButtonModelView extends BaseObservable {
     }
 
     @Bindable
-    public List<Integer> getButtonWidthList() {
-        return buttonWidthList;
+    public List<Integer> getButtonMarginList() {
+        return buttonMarginList;
     }
 
     @BindingAdapter("android:paddingLeft")
     public static void setPaddingLeft(View view, int padding) {
         view.setPadding(padding, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
+        view.requestLayout();
     }
 
     @BindingAdapter("android:paddingRight")
     public static void setPaddingRight(View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), padding, view.getPaddingBottom());
+        view.requestLayout();
     }
 
     @BindingAdapter("android:paddingTop")
     public static void setPaddingTop(View view, int padding) {
         view.setPadding(view.getPaddingLeft(), padding, view.getPaddingRight(), view.getPaddingBottom());
-
+        view.requestLayout();
     }
 
     @BindingAdapter("android:paddingBottom")
     public static void setPaddingBottom(View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), padding);
-
+        view.requestLayout();
     }
 
     public void setButtonValues(int index, String value, int width) {
         if (index >= buttonLabelList.size()) {
             buttonLabelList.add(value);
-            buttonWidthList.add(new Integer(width));
+            buttonMarginList.add(new Integer(width));
         } else {
             buttonLabelList.set(index, value);
-            buttonWidthList.set(index, new Integer(width));
+            buttonMarginList.set(index, new Integer(width));
         }
         notifyPropertyChanged(BR.buttonLabelList);
-        notifyPropertyChanged(BR.buttonWidthList);
+        notifyPropertyChanged(BR.buttonMarginList);
     }
 
 
