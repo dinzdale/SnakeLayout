@@ -9,26 +9,31 @@
 
     </data>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center">
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:layout_weight="1">
 
             <com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout
-                android:id="@+id/snake_layout"
+
+            android:id="@+id/snake_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollIndicators="right"
+                android:scrollbarAlwaysDrawVerticalTrack="true">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@{buttonVM.buttonMarginList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                    android:paddingRight="@{buttonVM.buttonMarginList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingLeft="@{buttonVM.buttonMarginList[0] == 0 ? @dimen/button_width_small : @dimen/button_width_large }"
+                    android:paddingRight="@{buttonVM.buttonMarginList[0] == 0 ? @dimen/button_width_large : @dimen/button_width_medium }"
                     android:text="@{buttonVM.buttonLabelList[0]}" />
 
                 <Button
@@ -47,8 +52,8 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@{buttonVM.buttonMarginList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
-                    android:paddingTop="@{buttonVM.buttonMarginList[3] == 0 ? @dimen/button_width_small : @dimen/button_width_medium }"
+                    android:paddingBottom="@{buttonVM.buttonMarginList[3] == 0 ? @dimen/button_width_large : @dimen/button_width_small }"
+                    android:paddingTop="@{buttonVM.buttonMarginList[3] == 0 ? @dimen/button_width_large : @dimen/button_width_medium }"
                     android:text="@{buttonVM.buttonLabelList[3]}" />
 
                 <Button
@@ -118,13 +123,12 @@
             </com.snakelayout.gary_jacobs.infragisiticstasksnakelayout.SnakeLayout>
         </ScrollView>
 
-        <!--<Button-->
-            <!--android:id="@+id/orientation_btn"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:text="change orientation"-->
-            <!--android:visibility="gone"/>-->
+        <Button
+            android:id="@+id/orientation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="change orientation"/>
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 </layout>
